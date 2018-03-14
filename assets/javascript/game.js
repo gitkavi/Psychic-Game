@@ -43,7 +43,7 @@ document.onkeyup = function (event) {
         {
             losses++;
             document.getElementById("loseScore").innerHTML = losses;
-            alert("Computer Win !!!")
+            alert("Computer Win !!! The letter was "+ computerGuess);
             reset();
         }
     }
