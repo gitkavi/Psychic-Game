@@ -21,14 +21,16 @@ document.onkeyup = function (event) {
         // Determines which key was pressed.
         var userGuess = (event.key).toLowerCase();
 
-        usedGuesses++;
-        guesses--;
-
-        document.getElementById("guessLeft").innerHTML = guesses;
-
         //pushes the guessed letter in to guessedLetter array.
-        guessedLetter.push(userGuess);
-        document.getElementById("guessedLetters").innerHTML = guessedLetter;
+        if(!guessedLetter.includes(userGuess))
+        {
+            console.log("guessed Letter: "+guessedLetter);
+            usedGuesses++;
+            guesses--;
+            guessedLetter.push(userGuess);
+            document.getElementById("guessLeft").innerHTML = guesses;
+            document.getElementById("guessedLetters").innerHTML = guessedLetter;
+        }
 
         //Checks if user has guessed the correct letter with the provided number of guess.
         if ((usedGuesses<=10) && (userGuess === computerGuess)){
